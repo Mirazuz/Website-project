@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: serif;
+    list-style: none;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(229, 229, 218);
+    border-style: solid;
+    border-top: black;
+    border-width: 0.5px;
+    padding: 0 20px;
+    height: 70px; 
+}
+
+.nav-container>nav>ul {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-container>nav>ul>li {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-container>nav>ul>li>a {
+    padding: 20px;
+    padding-right: 30px;
+    color: black;
+    font-size: 18px;
+    display: block;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.nav-container>img {
+    max-width: 125px;
+    padding-bottom: 5px;
+}
+
+
+/* Анимация для кнопок */
+.button {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: scale(1.1);
+}
