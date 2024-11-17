@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Техподдержка</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: darkblue;
+        }
+    </style>
+    <link rel="stylesheet" href="static/styles/left-bar.css">
+    <link rel="stylesheet" href="static/styles/mainstyles.css">
+    <link rel="stylesheet" href="static/styles/bg-color.css">
+    <link rel="stylesheet" href="static/styles/nav.css">
+    <link rel="stylesheet" href="static/styles/main-container-tech.css">
+</head>
+<body>
+    <!-- Фон сверху с текстом-->
+    <div class="bg-top">
+        <video src="static/videos/Bubbles_Background_Loop.mp4" type="video/mp4" autoplay muted loop></video>
+        <div class="video-text">
+            <h1>IT и Точка</h1>
+        </div>
+    </div>
+
+    <!-- Навигационная панель -->
+    <div class="nav-container">
+        <img src="static/images/Логотип-Photoroom.png" alt="">
+        <nav>
+            <ul>
+                <li class="button"><a href="index.html">Главная страница</a></li>
+                <li class="button"><a href="products.html">Товары</a></li>
+                <li class="button"><a href="basket.html">Корзина</a></li>
+                <li class="button"><a href="about.html">О нас</a></li>
+                <li class="button"><a href="techsupport.html">Техподдержка</a></li>
+                <li class="button"><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="page">
+        <!-- Левая панель -->
+        <div class="left-bar">
+            <ul>
+                <li><a href="#">Роботы и устройства для автоматизации</a></li>
+                <li><a href="#">Сенсорные устройства и датчики</a></li>
+                <li><a href="#">Камеры и системы наблюдения</a></li>
+                <li><a href="#">Системы управления домом</a></li>
+            </ul>
+        </div>
+
+        <!-- Основная часть -->
+        <div class="bg-image">
+            <div class="main-container-tech">
+                <h1 class="News">Техподдержка компании "IT и Точка"</h1>
+
+                <div class="techsupport-info">
+                    <h2>Контакты для связи</h2>
+                    <p>Если у вас возникли вопросы или проблемы с нашими продуктами, пожалуйста, свяжитесь с нашей технической поддержкой:</p>
+                    <ul>
+                        <li><strong>Телефон:</strong> +7 (495) 123-45-67</li>
+                        <li><strong>Электронная почта:</strong> <a href="mailto:support@it-dot.ru">support@it-dot.ru</a></li>
+                        <li><strong>Часы работы:</strong> Пн-Пт, 9:00 - 18:00 (МСК)</li>
+                    </ul>
+
+                    <h2>Форма обратной связи</h2>
+                    <form action="#" method="post">
+                        <label for="name">Ваше имя:</label><br>
+                        <input type="text" id="name" name="name" required><br><br>
+
+                        <label for="email">Ваш email:</label><br>
+                        <input type="email" id="email" name="email" required><br><br>
+
+                        <label for="subject">Тема:</label><br>
+                        <input type="text" id="subject" name="subject" required><br><br>
+
+                        <label for="message">Сообщение:</label><br>
+                        <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+                        <input type="submit" value="Отправить">
+                    </form>
+
+                    <h2>Часто задаваемые вопросы (FAQ)</h2>
+                    <div class="faq">
+                        <details>
+                            <summary>Как установить устройство?</summary>
+                            <p>Инструкции по установке находятся в руководстве пользователя, которое можно скачать с нашего сайта или найти в комплекте поставки.</p>
+                        </details>
+
+                        <details>
+                            <summary>Как обновить прошивку устройства?</summary>
+                            <p>Для обновления прошивки следуйте инструкциям, которые можно найти в разделе "Поддержка" на нашем сайте.</p>
+                        </details>
+
+                        <details>
+                            <summary>Как связаться с технической поддержкой?</summary>
+                            <p>Вы можете связаться с нашей технической поддержкой по телефону +7 (495) 123-45-67 или по электронной почте <a href="mailto:support@it-dot.ru">support@it-dot.ru</a>.</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

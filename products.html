@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Товары</title>
+    <link rel="stylesheet" href="static/styles/products.css">
+    <link rel="stylesheet" href="static/styles/left-bar.css">
+    <link rel="stylesheet" href="static/styles/mainstyles.css">
+    <link rel="stylesheet" href="static/styles/bg-color.css">
+    <link rel="stylesheet" href="static/styles/nav.css">
+    <style>
+        a {
+            text-decoration: none;
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- Фон сверху с текстом -->
+    <div class="bg-top">
+        <video src="static/videos/Bubbles_Background_Loop.mp4" type="video/mp4" autoplay muted loop></video>
+        <div class="video-text">
+            <h1>IT и Точка</h1>
+        </div>
+    </div>
+    
+    <!-- Навигационная панель -->
+    <div class="nav-container">
+        <img src="static/images/Логотип-Photoroom.png" alt="Логотип">
+        <nav>
+            <ul>
+                <li class="button"><a href="index.html">Главная страница</a></li>
+                <li class="button"><a href="products.html">Товары</a></li>
+                <li class="button"><a href="basket.html">Корзина</a></li>
+                <li class="button"><a href="about.html">О нас</a></li>
+                <li class="button"><a href="techsupport.html">Техподдержка</a></li>
+                <li class="button"><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="page">
+        <!-- Левая панель -->
+        <div class="left-bar">
+            <ul>
+                <li><a href="cat-products/robots.html">Роботы и устройства для автоматизации</a></li>
+                <li><a href="cat-products/sensors.html">Сенсорные устройства и датчики</a></li>
+                <li><a href="cat-products/cameras.html">Камеры и системы наблюдения</a></li>
+                <li><a href="cat-products/systems.html">Системы управления домом</a></li>
+            </ul>
+        </div>
+
+        <!-- Основная часть -->
+        <div class="bg-image">
+            <div class="main-content">
+                <div class="container">
+                    <h1 class="Tovar">Товары и характеристики</h1>
+                    <div class="category-grid">
+                        <!-- Роботы и устройства для автоматизации -->
+                        <article class="card" onclick="window.location.href='cat-products/robots.html'">
+                            <img class="card__background" src="static/images/category/Роботы и устройства для автомизации.jpg" alt="Роботы и устройства для автоматизации">
+                            <div class="card__content | flow">
+                                <div class="card__content--container | flow">
+                                    <h2 class="card__title">Роботы и устройства для автоматизации</h2>
+                                    <p class="card__description">Автоматизируйте ваш дом с помощью инновационных роботов и устройств.</p>
+                                </div>
+                                <button class="card__button">Подробнее</button>
+                            </div>
+                        </article>
+                        <!-- Сенсорные устройства и датчики -->
+                        <article class="card" onclick="window.location.href='cat-products/sensors.html'">
+                            <img class="card__background" src="static/images/category/Сенсорные устройства и записи.png" alt="Сенсорные устройства и датчики">
+                            <div class="card__content | flow">
+                                <div class="card__content--container | flow">
+                                    <h2 class="card__title">Сенсорные устройства и датчики</h2>
+                                    <p class="card__description">Обеспечьте безопасность и комфорт с помощью умных датчиков.</p>
+                                </div>
+                                <button class="card__button">Подробнее</button>
+                            </div>
+                        </article>
+                        <!-- Камеры и системы наблюдения -->
+                        <article class="card" onclick="window.location.href='cat-products/cameras.html'">
+                            <img class="card__background" src="static/images/category/Камеры и системы наблюдения.png" alt="Камеры и системы наблюдения">
+                            <div class="card__content | flow">
+                                <div class="card__content--container | flow">
+                                    <h2 class="card__title">Камеры и системы наблюдения</h2>
+                                    <p class="card__description">Наблюдайте за вашим домом с помощью высококачественных камер.</p>
+                                </div>
+                                <button class="card__button">Подробнее</button>
+                            </div>
+                        </article>
+                        <!-- Системы управления домом -->
+                        <article class="card" onclick="window.location.href='cat-products/systems.html'">
+                            <img class="card__background" src="static/images/category/Системы управления домо.jpg" alt="Системы управления домом">
+                            <div class="card__content | flow">
+                                <div class="card__content--container | flow">
+                                    <h2 class="card__title">Системы управления домом</h2>
+                                    <p class="card__description">Управляйте всеми устройствами вашего дома с помощью умных систем.</p>
+                                </div>
+                                <button class="card__button">Подробнее</button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

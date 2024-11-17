@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+    <link rel="stylesheet" href="static/styles/products.css">
+    <link rel="stylesheet" href="static/styles/left-bar.css">
+    <link rel="stylesheet" href="static/styles/mainstyles.css">
+    <link rel="stylesheet" href="static/styles/bg-color.css">
+    <link rel="stylesheet" href="static/styles/nav.css">
+    <link rel="stylesheet" href="static/styles/basket.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Фон сверху с текстом -->
+    <div class="bg-top">
+        <video src="static/videos/Bubbles_Background_Loop.mp4" type="video/mp4" autoplay muted loop></video>
+        <div class="video-text">
+            <h1>IT и Точка</h1>
+        </div>
+    </div>
+    
+    <!-- Навигационная панель -->
+    <div class="nav-container">
+        <img src="static/images/Логотип-Photoroom.png" alt="Логотип">
+        <nav>
+            <ul>
+                <li class="button"><a href="index.html">Главная страница</a></li>
+                <li class="button"><a href="products.html">Товары</a></li>
+                <li class="button"><a href="basket.html">Корзина</a></li>
+                <li class="button"><a href="about.html">О нас</a></li>
+                <li class="button"><a href="techsupport.html">Техподдержка</a></li>
+                <li class="button"><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="page">
+        <!-- Левая панель -->
+        <div class="left-bar">
+            <ul>
+                <li><a href="cat-products/robots.html">Роботы и устройства для автоматизации</a></li>
+                <li><a href="cat-products/sensors.html">Сенсорные устройства и датчики</a></li>
+                <li><a href="cat-products/cameras.html">Камеры и системы наблюдения</a></li>
+                <li><a href="cat-products/systems.html">Системы управления домом</a></li>
+            </ul>
+        </div>
+
+        <!-- Основная часть -->
+        <div class="bg-image">
+            <div class="main-content">
+                <div class="container">
+                    <h1>Корзина</h1>
+                    <div class="basket-grid">
+                        <!-- Сообщение о пустой корзине -->
+                        <div class="empty-cart-message" style="display: none;">
+                            <p>Ваша корзина пуста.</p>
+                        </div>
+                        <!-- Добавьте другие товары в корзину аналогично -->
+                    </div>
+                    <div class="basket-summary">
+                        <h2>Итого</h2>
+                        <p>Сумма: Rs. 0</p>
+                        <button class="checkout-btn">Оформить заказ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const basketGrid = document.querySelector('.basket-grid');
+            const basketSummary = document.querySelector('.basket-summary p');
+            const emptyCartMessage = document.querySelector('.empty-cart-message');
+
+            function updateCart() {
+                const items = document.querySelectorAll('.basket-item');
+                const cart = [];
+                let total = 0;
+
+                items.forEach(item => {
+                    const productName = item.querySelector('h2').innerText;
+                    const productPrice = item.querySelector('p:nth-child(3)').innerText;
+                    const productImage = item.querySelector('.basket-item-image img').src;
+                    const quantity = parseInt(item.querySelector('.quantity-input').value);
+
+                    cart.push({
+                        name: productName,
+                        price: productPrice,
+                        image: productImage,
+                        quantity: quantity
+                    });
+
+                    total += parseInt(productPrice.replace('Rs. ', '')) * quantity;
+                });
+
+                localStorage.setItem('cart', JSON.stringify(cart));
+                basketSummary.innerText = `Сумма: Rs. ${total}`;
+
+                if (cart.length === 0) {
+                    emptyCartMessage.style.display = 'block';
+                } else {
+                    emptyCartMessage.style.display = 'none';
+                }
+            }
+
+            function loadCart() {
+                basketGrid.innerHTML = ''; // Очищаем содержимое корзины перед загрузкой
+
+                if (cart.length === 0) {
+                    emptyCartMessage.style.display = 'block';
+                } else {
+                    let total = 0;
+
+                    cart.forEach(product => {
+                        const item = document.createElement('div');
+                        item.className = 'basket-item';
+
+                        item.innerHTML = `
+                            <div class="basket-item-image">
+                                <img src="${product.image}" alt="${product.name}">
+                            </div>
+                            <div class="basket-item-details">
+                                <h2>${product.name}</h2>
+                                <p>${product.price}</p>
+                                <div class="quantity">
+                                    <input type="number" class="quantity-input" value="${product.quantity}" min="1">
+                                </div>
+                                <button class="remove-btn">Удалить</button>
+                            </div>
+                        `;
+
+                        basketGrid.appendChild(item);
+
+                        total += parseInt(product.price.replace('Rs. ', '')) * product.quantity;
+                    });
+
+                    basketSummary.innerText = `Сумма: Rs. ${total}`;
+                }
+            }
+
+            loadCart();
+
+            document.querySelectorAll('.remove-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const item = button.closest('.basket-item');
+                    const productName = item.querySelector('h2').innerText;
+                    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    const updatedCart = cart.filter(product => product.name !== productName);
+
+                    localStorage.setItem('cart', JSON.stringify(updatedCart));
+                    item.remove();
+                    updateCart();
+
+                    if (updatedCart.length === 0) {
+                        emptyCartMessage.style.display = 'block';
+                    }
+                });
+            });
+
+            document.querySelectorAll('.quantity-input').forEach(input => {
+                input.addEventListener('change', () => {
+                    updateCart();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
